@@ -6,20 +6,27 @@ public class VirtualThreadsExample {
 
 
         try {
-            Thread.Builder builder = Thread.ofVirtual().name("my first Thread");
+            Thread.Builder builder = Thread.ofVirtual().name("worker-", 0);
 
             Runnable task = () -> {
-                System.out.println("Running thread");
+                System.out.println("Thread ID: " + Thread.currentThread().threadId());
             };
 
-            Thread t = builder.start(task);
+            // name "worker-0"
+            Thread t1 = builder.start(task);
+            t1.join();
 
-            System.out.println("Name of thread t " + t.getName());
+            System.out.println(t1.getName() + " terminated");
 
-            // añadimos un delay al main thread (no al virtual 't') de 2 segundos
+            // name "worker-1
+            Thread t2 = builder.start(task);
+            t2.join();
+            System.out.println(t2.getName() + " terminated");
+
+            // add delay 2 seconds
             Thread.sleep(2000);
 
-            t.join();
+
         }catch (InterruptedException e) {
             e.printStackTrace();
         }
