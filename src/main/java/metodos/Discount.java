@@ -3,17 +3,26 @@ package metodos;
 public class Discount {
     public static void main(String[] args) {
         /*
-* Ejercicio 1: Calcular un descuento
+        *
+        * ¿Qué necesito recibir? → precio original y porcentaje de descuento
+          ¿Qué necesito devolver? → precio final (un número decimal)
+          ¿Qué cálculo hago? → restar el descuento del precio original*/
 
-Diseña un método que reciba un precio original y un porcentaje de descuento y devuelva el precio final.
 
-Preguntas guía:
-¿Qué datos necesita para poder operar?
-¿Qué debe devolver exactamente?
-¿Qué pasa si el descuento es 0? ¿Y si es 100?
-        * */
+        System.out.println("price is: " + finalPrice);
 
 
 
     }
+
+    public static double discountPrice(double price, double discountPercentage) {
+        double discount = price * (discountPercentage / 100);
+        return price - discount;
+
+
+    }
+
+    static double finalPrice = discountPrice(100.0, 20.0);
+
+
 }

@@ -3,12 +3,12 @@ package linkedlist;
 public class Node {
 
     // data part of the node
-    int data;
+    String data;
 
     // pointer to the next node in the list
     Node next;
 
-    public Node(int data) {
+    public Node(String data) {
         this.data = data;
         this.next = null;
     }
